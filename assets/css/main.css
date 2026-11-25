@@ -1660,8 +1660,7 @@ html[dir="rtl"] a.pcard:hover .pcard__go .ico { transform: translateX(-4px) scal
 .legend li { cursor: pointer; }
 .legend li:hover b { color: var(--c); }
 .aud__vip li a, .ptier li a { display: contents; color: inherit; text-decoration: none; }
-.aud__vip li, .ptier li { cursor: pointer; transition: color .2s; }
-.aud__vip li:hover { color: var(--orange-300); }
+.aud__vip li, .ptier li { cursor: default; -webkit-tap-highlight-color: transparent; }
 .ptier li:hover { color: var(--teal-700); }
 .rp__steps li a { display: contents; color: inherit; text-decoration: none; }
 a.pws, a.pwc__end { color: inherit; text-decoration: none; }
