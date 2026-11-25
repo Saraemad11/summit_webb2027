@@ -1956,3 +1956,23 @@ html.lb-open { overflow: hidden; }
 /* ---------- the President's word: justified ---------- */
 .spk__q p { text-align: justify; text-align-last: start; }
 .ptier__ring { display: none !important; }
+
+/* ---------- the summit map: every label large and clear ---------- */
+.rseg__label, html[lang="ar"] .rseg__label { font-size: 23px; font-weight: 600; letter-spacing: 0; }
+.rseg__num { font-size: 30px; }
+.rpil__label, html[lang="ar"] .rpil__label { font-size: 27px; font-weight: 700; letter-spacing: 0; }
+.rnode__lbl text { font-size: 23px; font-weight: 700; }
+.marc__label, html[lang="ar"] .marc__label { font-size: 21px; font-weight: 700; letter-spacing: 0; }
+.ringtip { font-size: 0.875rem; max-width: 240px; }
+.ringtip b { font-size: 0.9375rem; }
+
+/* ---------- partnership scope: three simple cards ---------- */
+.ptier { display: grid; place-items: center; padding: 26px 20px; }
+.ptier__h { display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 0; padding: 0; border: 0; }
+.ptier__ic { width: 56px; height: 56px; border-radius: 18px; }
+.ptier__ic .ico { width: 26px; height: 26px; }
+.ptier__h h3 { font-size: 1.25rem; }
+@media (max-width: 720px) {
+  .rpil__label, html[lang="ar"] .rpil__label { font-size: 38px; }
+  .rseg__num { font-size: 44px; }
+}

@@ -172,10 +172,9 @@
 
     /* ---- POTENTIAL PARTNERS + partner call to action ---- */
     h += '<section class="section partners" id="partners"><div class="container">' +
-      C.head({ center: true, eyebrow: tt('Potential Partners', 'الشركاء المحتملون'), title: tt('National, Regional, <em>International</em>', 'وطني، إقليمي، <em>دولي</em>'), lede: tt('Who the Summit seeks to partner with on projects with community impact.', 'الجهات التي تسعى القمة إلى الشراكة معها في المشروعات ذات الأثر المجتمعي.') }) +
+      C.head({ center: true, eyebrow: tt('Partnership Scope', 'مجال الشراكة'), title: tt('Local, Regional, <em>International</em>', 'محلي، إقليمي، <em>دولي</em>'), lede: tt('Who the Summit seeks to partner with on projects with community impact.', 'الجهات التي تسعى القمة إلى الشراكة معها في المشروعات ذات الأثر المجتمعي.') }) +
       '<div class="ptiers">' + D.partners.map(function (p, i) {
-        return '<div class="ptier ptier--' + p.key + '" data-reveal style="--d:' + (i * 0.1) + 's"><div class="ptier__h"><span class="ptier__ic">' + ico(p.icon) + '</span><h3>' + E(p.name) + '</h3><span class="ptier__ring"><i></i><i></i><i></i></span></div><ul>' +
-          p.items.map(function (x) { return '<li>' + ico('check') + E(x) + '</li>'; }).join('') + '</ul></div>';
+        return '<div class="ptier ptier--' + p.key + '" data-reveal style="--d:' + (i * 0.1) + 's"><div class="ptier__h"><span class="ptier__ic">' + ico(p.icon) + '</span><h3>' + E(p.name) + '</h3></div></div>';
       }).join('') + '</div>' +
       '<div class="pband" data-reveal><div><h3>' + tt('Become a Summit partner', 'كن شريكًا في القمة') + '</h3><p>' + tt('The Summit is looking for partners for projects with community impact. NACDW is the intermediary between the project and the partner, and follows the partnership up after the Summit.', 'تبحث القمة عن شركاء للمشروعات ذات الأثر المجتمعي. التحالف الوطني هو الجهة الوسيطة بين المشروع والشريك، ويتابع الشراكة حتى بعد القمة.') + '</p></div>' +
       C.btn(tt('See partnership opportunities', 'اعرف فرص الشراكة'), '#/register/partner', 'accent') + '</div></div></section>';

@@ -92,18 +92,9 @@
 
   /* ---------- Potential Partners Suggested ---------- */
   var partners = [
-    { key: 'national', name: T('National', 'وطني'), icon: 'landmark', items: [
-      T('Relevant ministries and governorates', 'الوزارات والمحافظات المعنية'), T('Major Egyptian companies and banks', 'كبرى الشركات والبنوك المصرية'),
-      T('Universities and research institutions', 'الجامعات والمؤسسات البحثية'), T('Business federations and chambers', 'اتحادات الأعمال والغرف التجارية'),
-      T('Foundations, media and knowledge partners', 'المؤسسات والإعلام وشركاء المعرفة')] },
-    { key: 'regional', name: T('Regional', 'إقليمي'), icon: 'map', items: [
-      T('League of Arab States', 'جامعة الدول العربية'), T('Arab development institutions', 'مؤسسات التنمية العربية'),
-      T('African Union and regional organizations', 'الاتحاد الأفريقي والمنظمات الإقليمية'), T('Gulf foundations and investment entities', 'المؤسسات والجهات الاستثمارية الخليجية'),
-      T('Regional business and philanthropy networks', 'شبكات الأعمال والعمل الخيري الإقليمية')] },
-    { key: 'international', name: T('International', 'دولي'), icon: 'globe', items: [
-      T('UN agencies and EU institutions', 'وكالات الأمم المتحدة ومؤسسات الاتحاد الأوروبي'), T('World Bank Group and development banks', 'مجموعة البنك الدولي وبنوك التنمية'),
-      T('Bilateral development agencies', 'وكالات التنمية الثنائية'), T('Global foundations and corporations', 'المؤسسات والشركات العالمية'),
-      T('International development networks', 'شبكات التنمية الدولية')] }
+    { key: 'national', name: T('Local', 'محلي'), icon: 'landmark' },
+    { key: 'regional', name: T('Regional', 'إقليمي'), icon: 'map' },
+    { key: 'international', name: T('International', 'دولي'), icon: 'globe' }
   ];
 
   /* ---------- Matchmaking (arranged by NACDW; no direct contact between organizations) ---------- */

@@ -28,7 +28,7 @@
       ['tracks', 'layers', tt('Proposed Pillars', 'المحاور المقترحة'), tt('The 8 tracks of the Summit', '8 مسارات تركز عليها القمة')],
       ['audience', 'users', tt('Target Audience', 'الجمهور المستهدف'), tt('Who takes part', 'مَن يشارك في القمة')],
       ['models', 'award', tt('Success Models', 'النماذج الناجحة'), tt('Egyptian models and their impact', 'نماذج مصرية وأثرها في المجتمع')],
-      ['partners', 'handshake', tt('Potential Partners', 'الشركاء المحتملون'), tt('Who the Summit seeks to partner with', 'الجهات التي تسعى القمة للشراكة معها')],
+      ['partners', 'handshake', tt('Partnership Scope', 'مجال الشراكة'), tt('Who the Summit seeks to partner with', 'الجهات التي تسعى القمة للشراكة معها')],
       ['matchmaking', 'calendar', tt('Networking meetings', 'لقاءات التعارف'), tt('Meetings arranged by NACDW at the Summit', 'لقاءات يرتبها التحالف أثناء القمة')]
     ];
   }
@@ -388,9 +388,24 @@
   }
 
   /* ---------- the summit map: tap a category, a track, a pillar or the centre ---------- */
+  function fitRingText(svg) {
+    $$('.rnode__lbl', svg).forEach(function (g) {
+      var t = $('text', g), r = $('rect', g); if (!t || !r || !t.getComputedTextLength) return;
+      var w = t.getComputedTextLength() + 40; if (!w || w < 60) return;
+      r.setAttribute('x', (-w / 2).toFixed(1)); r.setAttribute('width', w.toFixed(1));
+    });
+    $$('.rseg__label', svg).forEach(function (t) {
+      t.style.fontSize = '';
+      var tp = $('textPath', t), id = tp && (tp.getAttribute('href') || '').slice(1), path = id && document.getElementById(id);
+      if (!path || !t.getComputedTextLength) return;
+      var len = t.getComputedTextLength(), room = path.getTotalLength() * 0.96;
+      if (len > room) t.style.fontSize = (parseFloat(getComputedStyle(t).fontSize) * room / len).toFixed(1) + 'px';
+    });
+  }
   function mountRing(box) {
     var svg = $('svg.ring', box), tip = $('.ringtip', box), full = box.getAttribute('data-ring') === 'full';
     if (!svg) return;
+    fitRingText(svg); if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fitRingText(svg); });
     var nodes = $$('.rnode', svg), chords = $$('.chord', svg), segs = $$('.rseg', svg), pils = $$('.rpil', svg);
     var sel = null;
     function clear() { svg.classList.remove('is-focus'); nodes.concat(chords, segs).forEach(function (n) { n.classList.remove('on', 'sel'); }); }
@@ -487,7 +502,7 @@
     D.pillars.forEach(function (p) { ix.push({ t: plabel(p), s: L(p.tag) + ' — ' + p.formats.map(L).join('، '), h: '#/home/model', i: p.icon, c: p.color, k: tt('Operating model', 'نموذج العمل'), x: p.label + p.name.en + p.name.ar }); });
     D.tracks.forEach(function (t) { ix.push({ t: L(t.name), s: tt('Track 0', 'المسار 0') + t.id, h: '#/projects/' + t.slug, i: t.icon, c: t.color, k: tt('Track', 'مسار'), x: t.name.en + t.name.ar }); });
     D.stakeholders.forEach(function (s) { ix.push({ t: L(s.name), s: L(s.line), h: '#/register/' + s.sector, i: s.icon, c: s.color, k: tt('Target audience', 'الجمهور المستهدف'), x: s.name.en + s.name.ar + s.line.en + s.line.ar }); });
-    D.partners.forEach(function (p) { p.items.forEach(function (x) { ix.push({ t: L(x), s: tt('Potential partners | ', 'الشركاء المحتملون | ') + L(p.name), h: '#/home/partners', i: p.icon, c: dark, k: tt('Partner', 'شريك'), x: x.en + x.ar }); }); });
+    D.partners.forEach(function (p) { ix.push({ t: L(p.name), s: tt('Partnership scope', 'مجال الشراكة'), h: '#/home/partners', i: p.icon, c: dark, k: tt('Partnership', 'شراكة'), x: p.name.en + p.name.ar }); });
     D.mechanisms.forEach(function (m) { ix.push({ t: L(m.name), s: L(m.desc), h: '#/home/matchmaking', i: m.icon, c: dark, k: tt('Networking meetings', 'لقاءات التعارف'), x: m.name.en + m.name.ar }); });
     return ix;
   }

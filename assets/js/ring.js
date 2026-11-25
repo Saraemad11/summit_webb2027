@@ -25,7 +25,7 @@
     var tip = P(cx, cy, r, deg + 1.2), b1 = P(cx, cy, r - size, deg - 2.2), b2 = P(cx, cy, r + size, deg - 2.2);
     return '<path d="M' + f(b1[0]) + ' ' + f(b1[1]) + ' L' + f(tip[0]) + ' ' + f(tip[1]) + ' L' + f(b2[0]) + ' ' + f(b2[1]) + '" fill="none" stroke="' + color + '" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>';
   }
-  var PIL = [{ k: 'dialogue', a0: -90, a1: 30 }, { k: 'partnership', a0: 30, a1: 150 }, { k: 'action', a0: 150, a1: 270 }];
+  var PIL = [{ k: 'dialogue', a0: -90, a1: 30, lab: -55 }, { k: 'partnership', a0: 30, a1: 150, lab: 60 }, { k: 'action', a0: 150, a1: 270, lab: 232 }];
 
   var RING = {};
 
@@ -56,9 +56,9 @@
     PIL.forEach(function (p) {
       var pl = C.pillar(p.k), pid = id + 'p' + p.k, rev = p.k === 'partnership';
       o += '<g class="rpil rpil--' + p.k + '" data-pillar="' + p.k + '">' +
-        '<path d="' + arc(cx, cy, 170, p.a0 + 3, p.a1 - 3) + '" stroke="' + pl.color + '" stroke-width="34" fill="none" stroke-linecap="round"/>' +
+        '<path d="' + arc(cx, cy, 170, p.a0 + 3, p.a1 - 3) + '" stroke="' + pl.color + '" stroke-width="46" fill="none" stroke-linecap="round"/>' +
         '<path id="' + pid + '" d="' + arc(cx, cy, 170, p.a0 + 6, p.a1 - 6, rev) + '" fill="none"/>' +
-        '<text class="rpil__label" dy="5"><textPath href="#' + pid + '" startOffset="50%" text-anchor="middle">' + (C.isAr() ? C.E(pl.name) : pl.label) + '</textPath></text>' +
+        '<text class="rpil__label" dy="8"><textPath href="#' + pid + '" startOffset="' + f(100 * (rev ? (p.a1 - 6 - p.lab) : (p.lab - p.a0 - 6)) / (p.a1 - p.a0 - 12)) + '%" text-anchor="middle">' + (C.isAr() ? C.E(pl.name) : pl.label) + '</textPath></text>' +
         arrowHead(cx, cy, 170, p.a1 - 3, 9, 'rgba(255,255,255,.95)') + '</g>';
     });
     o += '<path id="' + id + 'loop" d="M500 330 A170 170 0 1 1 500 670 A170 170 0 1 1 500 330" fill="none"/>';
@@ -76,11 +76,11 @@
     // nodes
     o += '<g class="ring__nodes">';
     nodes.forEach(function (n) {
-      var lbl = C.E(n.s.short), lw = Math.max(90, lbl.length * (C.isAr() ? 9.2 : 8.6) + 26);
+      var lbl = C.E(n.s.short), lw = Math.max(110, lbl.length * (C.isAr() ? 13.6 : 12.4) + 40);
       o += '<g class="rnode" data-cat="' + n.s.slug + '" tabindex="0" role="button" aria-label="' + C.E(n.s.name) + '" transform="translate(' + f(n.x) + ' ' + f(n.y) + ')">' +
         '<circle r="66" class="rnode__halo" fill="' + n.s.color + '"/>' +
         '<circle r="48" fill="' + n.s.color + '" class="rnode__dot"/>' + svgIcon(n.s.icon, -17, -17, 34) +
-        '<g class="rnode__lbl" transform="translate(0 76)"><rect x="' + f(-lw / 2) + '" y="-16" width="' + f(lw) + '" height="32" rx="16"/><text dy="5" text-anchor="middle">' + lbl + '</text></g></g>';
+        '<g class="rnode__lbl" transform="translate(0 86)"><rect x="' + f(-lw / 2) + '" y="-22" width="' + f(lw) + '" height="44" rx="22"/><text dy="7" text-anchor="middle">' + lbl + '</text></g></g>';
     });
     o += '</g>';
     // hub
