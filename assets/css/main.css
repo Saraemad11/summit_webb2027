@@ -684,7 +684,7 @@ html[lang="ar"] .rpil__label { letter-spacing: 0; font-size: 14px; }
    ====================================================================== */
 .match__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .match__media { position: relative; }
-.match__media img { width: 100%; aspect-ratio: 697 / 623; object-fit: cover; border-radius: 24px; }
+.match__media img { width: 100%; aspect-ratio: 1280 / 673; object-fit: cover; border-radius: 24px; }
 .match__float { position: absolute; display: flex; align-items: center; gap: 9.6px; padding: 11.2px 14.4px; padding-inline: 11.2px 14.4px; border-radius: 16px; background: #fff; box-shadow: var(--shadow-2); animation: bob 5s ease-in-out infinite; max-width: 200px; }
 .match__float .ico { width: 33.6px; height: 33.6px; padding: 8px; border-radius: 11.2px; background: var(--orange-500); color: #241405; }
 .match__float b { display: block; font-size: 1rem; color: var(--teal-800); }
@@ -1975,3 +1975,11 @@ html.lb-open { overflow: hidden; }
   .rpil__label, html[lang="ar"] .rpil__label { font-size: 38px; }
   .rseg__num { font-size: 44px; }
 }
+
+/* ---------- dropdowns: one clear arrow, inside the box with space around it ---------- */
+.field select { -webkit-appearance: none; -moz-appearance: none; appearance: none; padding-inline-end: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B4D44' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-size: 16px 16px; background-position: left 14px center; }
+[dir="ltr"] .field select { background-position: right 14px center; }
+.field select::-ms-expand { display: none; }
+.match__grid { align-items: center; }

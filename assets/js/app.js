@@ -483,8 +483,9 @@
   function drawQR() {
     var box = $('#qr'); if (!box) return;
     if (!window.qrcode) { setTimeout(drawQR, 300); return; }
-    var url = location.href.split('#')[0].split('?')[0] + '#register';
-    try { var q = window.qrcode(0, 'M'); q.addData(url); q.make(); box.innerHTML = q.createSvgTag({ cellSize: 6, margin: 2, scalable: true }); box.title = url; } catch (e) { }
+    // Always the public site, so the code also works when the page is viewed somewhere else (e.g. a preview).
+    var url = (D.summit.url || location.href.split('#')[0].split('?')[0]) + '#register';
+    try { var q = window.qrcode(0, 'M'); q.addData(url); q.make(); box.innerHTML = q.createSvgTag({ cellSize: 6, margin: 4, scalable: true }); box.title = url; } catch (e) { }
   }
 
   /* ================= SEARCH ================= */

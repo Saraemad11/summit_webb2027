@@ -180,7 +180,7 @@
       C.btn(tt('See partnership opportunities', 'اعرف فرص الشراكة'), '#/register/partner', 'accent') + '</div></div></section>';
 
     /* ---- MATCHMAKING ---- */
-    h += '<section class="section match" id="matchmaking"><div class="container match__grid"><div class="match__media" data-reveal="clip"><img src="assets/img/networking.jpg" alt=""></div>' +
+    h += '<section class="section match" id="matchmaking"><div class="container match__grid"><div class="match__media" data-reveal="clip"><img src="assets/img/meeting.jpg" alt="" loading="lazy"></div>' +
       '<div class="match__copy">' + C.head({ eyebrow: tt('Networking meetings', 'لقاءات التعارف'), title: tt('Meetings arranged <em>by NACDW</em>', 'لقاءات يرتبها <em>التحالف</em>'), lede: tt('During the Summit, NACDW arranges meetings between participants and partners. All communication goes through NACDW.', 'أثناء القمة، يرتب التحالف لقاءات بين الجهات المشاركة والشركاء، وكل التواصل يتم من خلاله.') }) +
       '<div class="mech">' + D.mechanisms.map(function (m, i) {
         return '<a class="mechi" href="#/register/match" data-reveal style="--d:' + (i * 0.08) + 's"><span class="mechi__ic">' + ico(m.icon) + '</span><div><h4>' + E(m.name) + '</h4><p>' + E(m.desc) + '</p></div></a>';

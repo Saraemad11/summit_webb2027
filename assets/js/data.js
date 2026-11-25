@@ -7,6 +7,8 @@
   var T = function (en, ar) { return { en: en, ar: ar }; };
 
   var summit = {
+    // The public address of the website. The registration QR code opens this address + #register.
+    url: 'https://saraemad11.github.io/summit_webb2027/',
     name: T('Development Action Summit', 'قمة العمل التنموي'),
     theme: T("Shaping Egypt's Next Chapter of Development Work", 'صياغة الفصل القادم للعمل التنموي في مصر'),
     when: T('June 2027', 'يونيو 2027'),
